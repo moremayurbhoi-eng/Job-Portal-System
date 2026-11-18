@@ -1,0 +1,32 @@
+
+# Eclipse workspace
+.metadata/
+.settings/
+.classpath
+.project
+.factorypath
+
+# Java / Maven
+target/
+*.class
+
+# React
+node_modules/
+dist/
+build/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# IDE
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
