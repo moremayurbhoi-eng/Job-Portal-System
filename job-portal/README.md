@@ -1,42 +1,74 @@
-# Harbor Jobs: full stack job portal
+# Job Portal System
 
-React (Vite) + Spring Boot 3 (Java 17) + Spring Security (JWT) + JPA.
+A full-stack Job Portal Web Application built using **Java, Spring Boot, React.js, and MySQL**. The platform connects recruiters with candidates and provides job posting, job searching, and application management functionality.
 
-## Features
-- Candidates: search and filter jobs (title/company, location, type), apply with a cover letter and resume link, track application status
-- Employers: post, edit, close and delete jobs; review applicants and move them through APPLIED, REVIEWING, SHORTLISTED, REJECTED, HIRED
-- Stateless JWT auth, BCrypt passwords, role-based access (CANDIDATE / EMPLOYER), ownership checks on every employer action
-- Seeded demo data on first run
+## 🚀 Features
 
-## Run it
-Backend (needs Java 17 and Maven):
-    cd backend
-    mvn spring-boot:run          # http://localhost:8080
+### Authentication & Authorization
+- User registration and login
+- JWT-based authentication
+- Role-based access control
+- Three user roles: Admin, Recruiter, and Candidate
 
-Frontend (needs Node 18+):
-    cd frontend
-    npm install
-    npm run dev                  # http://localhost:5173 (proxies /api to :8080)
+### Recruiter
+- Post new job opportunities
+- Manage job listings
+- View candidate applications
 
-Demo logins (password `password123`): employer@demo.com, candidate@demo.com
+### Candidate
+- Browse available jobs
+- Search and explore job opportunities
+- Apply for jobs
+- Track application status
+- Resume upload support
 
-## Use MySQL instead of H2
-Create a database `jobportal`, then override in application.properties (or env vars):
-    spring.datasource.url=jdbc:mysql://localhost:3306/jobportal
-    spring.datasource.username=root
-    spring.datasource.password=yourpassword
-Set a real `JWT_SECRET` (32+ characters) in production.
+### Admin
+- Role-based administrative access
+- Manage platform activities
 
-## API
-| Method | Path | Access |
-|---|---|---|
-| POST | /api/auth/register, /api/auth/login | public |
-| GET | /api/auth/me | signed in |
-| GET | /api/jobs?q=&location=&type=&page=&size= | public |
-| GET | /api/jobs/{id} | public |
-| GET | /api/jobs/mine | employer |
-| POST / PUT / DELETE | /api/jobs, /api/jobs/{id} | employer (owner) |
-| POST | /api/jobs/{id}/apply | candidate |
-| GET | /api/jobs/{id}/applications | employer (owner) |
-| GET | /api/applications/mine | candidate |
-| PATCH | /api/applications/{id}/status | employer (owner) |
+## 🛠️ Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| Java | Backend programming |
+| Spring Boot | Backend framework |
+| Spring Security | Authentication and authorization |
+| JWT | Token-based authentication |
+| React.js | Frontend development |
+| MySQL | Database |
+| Maven | Dependency management |
+| HTML, CSS, JavaScript | Web development |
+
+## 📁 Project Structure
+
+```text
+Job-Portal-System/
+│
+├── backend/
+│   ├── src/
+│   │   └── main/
+│   │       ├── java/com/jobportal/
+│   │       │   ├── config/
+│   │       │   ├── controller/
+│   │       │   ├── dto/
+│   │       │   ├── model/
+│   │       │   ├── repository/
+│   │       │   ├── security/
+│   │       │   └── service/
+│   │       └── resources/
+│   │           └── application.properties
+│   └── pom.xml
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+└── README.md
+```
+
+## ⚙️ Installation and Setup
+
+### 1. Clone the Repository
+
+```bash
